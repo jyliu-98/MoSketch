@@ -1,0 +1,2 @@
+The two playful cats stand on their hind legs, engaged in a lively and fun interaction.	cat,cat_2
+The cats bat at a ball suspended between them.	cat,cat_2,ball
