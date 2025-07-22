@@ -1,0 +1,3 @@
+The curious cat jump to the table.	cat,table
+The cat reaches toward food.	cat,food
+A bowl of food is on the table.	food,table
