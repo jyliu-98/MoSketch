@@ -1,0 +1,2 @@
+The woman throws the frisbee with force.	woman,frisbee
+The man dives to catch the flying disc mid-air.	man,frisbee
