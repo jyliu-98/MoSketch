@@ -1,0 +1,3 @@
+One athlete runs towards the hurdle.	athlete_3,hurdle
+Another athlete is mid-air, clearing a hurdle.	athlete_2,hurdle
+The third athlete is sprinting ahead.	athlete
