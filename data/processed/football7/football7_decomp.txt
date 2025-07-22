@@ -1,0 +1,2 @@
+The soccer player skillfully dribbles the ball toward the goal.	soccer player,ball,goal
+The goalkeeper prepares to defend.	goalkeeper
