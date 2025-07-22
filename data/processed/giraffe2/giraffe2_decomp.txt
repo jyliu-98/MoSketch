@@ -1,0 +1,2 @@
+The giraffe approaches the tree.	giraffe,tree
+The giraffe prepares to eat from the high branches.	giraffe,tree
