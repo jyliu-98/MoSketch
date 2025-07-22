@@ -1,0 +1,2 @@
+A bottle is gracefully pouring liquid into a glass.	bottle,liquid,glass
+The steady stream creates ripples in the drink	liquid
