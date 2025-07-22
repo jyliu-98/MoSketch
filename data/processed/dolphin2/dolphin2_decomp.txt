@@ -1,0 +1,2 @@
+The seal seats on a stage.	seal,stage
+The seal preparing to toss the ball into the air for an impressive trick.	seal,ball
