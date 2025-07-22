@@ -1,0 +1,2 @@
+The person throws a frisbee through the air.	person,frisbee
+The dog sprints forward and catch the frisbee with its mouth in a swift motion.	frisbee,dog
