@@ -1,0 +1,3 @@
+A lone car maneuvers on the winding road.	car,road
+Steep cliffs enclose the road.	cliffs,road
+Dense vegetation surrounds the road.	vegetation,road
