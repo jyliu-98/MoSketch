@@ -1,0 +1,2 @@
+A horse-drawn carriage moves steadily forward.	horses,carriage
+The driver urges the horses onward.	driver,horses
