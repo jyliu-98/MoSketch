@@ -1,0 +1,2 @@
+The worker climbs an inclined ladder.	worker,ladder
+The worker moves steadily upwards.	worker
