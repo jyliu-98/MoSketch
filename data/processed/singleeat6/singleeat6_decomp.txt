@@ -1,0 +1,2 @@
+The person holds a fork poised over their food.	person,fork,food
+The person savors a moment of quiet dining.	person
