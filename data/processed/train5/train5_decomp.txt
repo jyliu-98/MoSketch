@@ -1,0 +1,1 @@
+A vintage steam locomotive with an attached carriage travels along the tracks.	locomotive,carriage,tracks
