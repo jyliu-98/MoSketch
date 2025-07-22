@@ -1,0 +1,2 @@
+The dog reaches up to the table.	table,dog
+The dog tries to grab the food on the table.	dog,table
