@@ -1,0 +1,1 @@
+A tank fires shells toward a distant rectangular target, with a burst of energy smoke.	tank,shells,target
