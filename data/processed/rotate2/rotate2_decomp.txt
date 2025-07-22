@@ -1,0 +1,2 @@
+The satellite shifts position as the Earth rotates.	satellite,earth
+The satellite continues its orbit to gather information from different angles.	satellite
