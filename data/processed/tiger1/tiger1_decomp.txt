@@ -1,0 +1,2 @@
+The tiger leaps through the air, claws extended.	tiger
+The fox tries to escape the tiger¡¯s pursuit.	fox,tiger
