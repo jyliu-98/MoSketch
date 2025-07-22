@@ -1,0 +1,2 @@
+Viewed from the back, a car navigates a curving road.	car,road
+The road is at the base of majestic mountains.	road,mountains
