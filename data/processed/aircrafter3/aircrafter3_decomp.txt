@@ -1,0 +1,2 @@
+A jet take off one by one from the aircraft carrier.	jet_2,aircraft carrier
+A jet ascend into formation in the sky above.	jet
