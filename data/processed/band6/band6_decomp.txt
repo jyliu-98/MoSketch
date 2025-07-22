@@ -1,0 +1,3 @@
+The drummer pounds the cymbals.	drummer
+The guitarist strums a final chord.	guitarist
+The keyboardist focused on the melody.	keyboardist
