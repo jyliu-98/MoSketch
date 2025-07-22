@@ -1,0 +1,2 @@
+The space shuttle begins its ascent, tilting slightly as it gains altitude.	space shuttle
+The shuttle leaves a trail of flames near the launch pad.	flames,launch pad,space shuttle
