@@ -1,0 +1,2 @@
+The soccer player executes an acrobatic bicycle kick.	soccer player,ball
+The ball flies to the goal quickly.	ball,goal
