@@ -1,0 +1,2 @@
+The woman and man sit at a dining table.	woman,man,table
+The woman and man clink glasses in a celebratory toast.	woman,man,glass,glass_2
