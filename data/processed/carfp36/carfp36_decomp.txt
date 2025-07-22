@@ -1,0 +1,2 @@
+A jeep viewed from the back travels along the curving road.	jeep,road
+A motorcycle approaches from the opposite direction.	motorcycle,road
