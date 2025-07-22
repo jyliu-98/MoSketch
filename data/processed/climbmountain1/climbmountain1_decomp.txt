@@ -1,0 +1,2 @@
+The climber navigates the rugged face of a mountain.	climber,mountain
+The climber dangles mid-air.	climber
