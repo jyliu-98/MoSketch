@@ -1,0 +1,2 @@
+The person leads the horse gently by the reins.	person,horse
+The rider sits calmly on the horse.	rider,horse
