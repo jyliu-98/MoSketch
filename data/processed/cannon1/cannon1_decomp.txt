@@ -1,0 +1,2 @@
+A shell bursts from the cannon.	shell,cannon
+The shell leaves a trail of smoke as it hurtles through the air.	shell,smoke
