@@ -1,0 +1,2 @@
+An excavator digs and scoops soil.	excavator,soil
+The excavator forms a pile nearby.	excavator,pile
