@@ -1,0 +1,2 @@
+Viewed from the front, an airplane ascends into the sky.	airplane
+An airplane lifts off from the runway.	airplane,runway
