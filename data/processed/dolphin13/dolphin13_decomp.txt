@@ -1,0 +1,2 @@
+The dolphin is jumping through the hoop.	dolphin,hoop
+The dolphin is jumping from the water.	dolphin,water
