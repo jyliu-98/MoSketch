@@ -1,0 +1,3 @@
+One worker shovels debris.	worker_3,shovel,debris
+Another worker operates a power tool.	worker
+A third worker transports materials with a wheelbarrow.	worker_2,wheelbarrow
