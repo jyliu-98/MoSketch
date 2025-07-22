@@ -1,0 +1,2 @@
+The climber reaches for the next hold, ascending a rock wall.	climber,rock wall
+There are many holds on the rock wall.	rock wall
