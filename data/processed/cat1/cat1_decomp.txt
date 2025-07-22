@@ -1,0 +1,3 @@
+A stealthy cat crouches low, its eyes locked on a tiny mouse.	cat,mouse
+The cat is ready to spring forward with calculated precision.	cat
+The mouse is going to escape.	mouse
