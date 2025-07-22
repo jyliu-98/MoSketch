@@ -1,0 +1,1 @@
+Two people rappel down a rope from a hovering helicopter.	person,person_2,helicopter
