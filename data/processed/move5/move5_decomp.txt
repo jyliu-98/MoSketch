@@ -1,0 +1,1 @@
+The person aligns the boxes into a neat pile.	person,boxes,boxes_2
