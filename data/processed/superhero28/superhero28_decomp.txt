@@ -1,0 +1,2 @@
+The superhero flies swiftly through the air.	superhero
+The superhero catches the man just before he hits the ground.	superhero,man
