@@ -1,0 +1,2 @@
+Two children turn the rope on either end.	child,child_2,rope
+One child jumps enthusiastically in the middle.	child_3,rope
