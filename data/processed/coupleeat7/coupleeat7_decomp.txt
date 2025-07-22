@@ -1,0 +1,2 @@
+The man gently feeds the woman across the dining table.	man,woman,table
+The man offers a spoonful of food to the woman.	man,woman,spoon
