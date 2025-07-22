@@ -1,0 +1,2 @@
+The dolphin is mid-leap, heading toward the ball, preparing to nudge it forward with its snout.	ball,dolphin
+The dolphin creates a playful splash.	water,dolphin
