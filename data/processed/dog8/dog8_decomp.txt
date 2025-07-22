@@ -1,0 +1,2 @@
+The dog prepares to enjoy a delightful meal near a table.	dog,meal,table
+The dog uses its paws to handle the chopsticks.	dog
