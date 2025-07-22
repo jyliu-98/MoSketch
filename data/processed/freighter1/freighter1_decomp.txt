@@ -1,0 +1,2 @@
+A large crane lowers a container.	crane,container
+The container is placed onto a heavily loaded cargo ship.	cargo ship,container
