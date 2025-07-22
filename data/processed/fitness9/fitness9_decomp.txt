@@ -1,0 +1,3 @@
+The boxer throws a powerful punch at the heavy sandbag.	boxer,sandbag
+The sandbag is hoisted with brackets.	sandbag,brackets
+The sandbag swings.	sandbag
