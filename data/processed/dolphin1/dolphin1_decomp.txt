@@ -1,0 +1,2 @@
+The seal on a stage prepares to leap toward the ball.	seal,stage,ball
+The ball is throw to the seal.	seal,ball
