@@ -1,0 +1,2 @@
+A person holds a spoonful of food close to their lips.	person,spoon
+The person is ready to take a bite.	person,spoon
