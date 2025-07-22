@@ -1,0 +1,3 @@
+The player soars through the air with a basketball.	player,basketball
+The basketball thrown to the hoop.	basketball,hoop
+The player extends their arm for an electrifying slam dunk with a basketball.	player,basketball
