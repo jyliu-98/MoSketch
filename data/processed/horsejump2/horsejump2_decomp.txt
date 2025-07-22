@@ -1,0 +1,3 @@
+The horse gracefully soars over the obstacle.	horse,wooden obstacle
+The rider maintains perfect balance and focus in mid-air on the horse.	horse,rider
+The horse lands on the front feet.	horse
