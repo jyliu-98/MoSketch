@@ -1,0 +1,2 @@
+Ice cubes splash into a glass of liquid.	ice cube,ice cube_2,glass,liquid
+The scene captures a lively and refreshing moment.	glass,liquid
