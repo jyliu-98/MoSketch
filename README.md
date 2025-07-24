@@ -28,9 +28,9 @@
 
 <hr>
 
-## Latest Update
-- **[2025.07.28]** 🔥 We released the **project page** for [MoSketch](https://rucmm.github.io/MoSketch).
-- **[2025.07.25]** 🔥 We released the **code** for [MoSketch](https://github.com/jyliu-98/MoSketch).
+## :new: Latest Update
+- **[2025.07.28]** 🔥 We released the **project page** for **[MoSketch](https://rucmm.github.io/MoSketch)**.
+- **[2025.07.25]** 🔥 We released the **code** for **[MoSketch](https://github.com/jyliu-98/MoSketch)**.
 - **[2025.06.26]** 🎉 MoSketch is accepted by ICCV 2025!
 - **[2025.03.25]** 🔥 We released the **[MoSketch Paper](https://arxiv.org/abs/2503.19351)**. MoSketch is an iterative 
 optimization based and thus training-data free method, aiming to animate a multi-object sketch *w.r.t.* a specific textual instruction.
