@@ -27,14 +27,14 @@
 </div>
 
 ## :new: Latest Update
-- **[2025.07.28]** 🔥 We released the **project page** for **[MoSketch](https://rucmm.github.io/MoSketch)**.
-- **[2025.07.25]** 🔥 We released the **code** for **[MoSketch](https://github.com/jyliu-98/MoSketch)**.
+- **[2025.07.28]** 🔥 We released the **[project page](https://rucmm.github.io/MoSketch)** for **MoSketch**.
+- **[2025.07.25]** 🔥 We released the **[code](https://github.com/jyliu-98/MoSketch)** for **MoSketch**.
 - **[2025.06.26]** 🎉 MoSketch is accepted by ICCV 2025!
 - **[2025.03.25]** 🔥 We released the **[MoSketch Paper](https://arxiv.org/abs/2503.19351)**. MoSketch is an iterative 
 optimization based and thus **training-data free** method, aiming to animate a multi-object sketch *w.r.t.* a specific textual instruction.
 
 ## 🔧 Setup
-Download the code.
+Download the code of MoSketch.
 ```
 git clone https://github.com/jyliu-98/MoSketch.git
 cd MoSketch
@@ -43,8 +43,8 @@ cd MoSketch
 Create a new anaconda environment and install dependencies.
 ```
 # create a new anaconda env
-conda create -n momosketch python==3.8 -y
-conda activate momosketch
+conda create -n mosketch python==3.8 -y
+conda activate mosketch
 
 # install torch and dependencies
 pip install -r requirements.txt
