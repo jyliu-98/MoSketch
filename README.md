@@ -33,6 +33,19 @@
 - **[2025.03.25]** 🔥 We released the **[MoSketch Paper](https://arxiv.org/abs/2503.19351)**. MoSketch is an iterative 
 optimization based and thus **training-data free** method, aiming to animate a multi-object sketch *w.r.t.* a specific textual instruction.
 
+## 📄 Abstract
+Sketch animation, which brings static sketches to life by generating dynamic video sequences, 
+has found widespread applications in GIF design, cartoon production, and daily entertainment. 
+While current methods for sketch animation perform well in single-object sketch animation, 
+they struggle in *multi*-object scenarios. By analyzing their failures, 
+we identify two major challenges of transitioning from single-object to multi-object sketch animation: 
+object-aware motion modeling and complex motion optimization. For multi-object sketch animation, 
+we propose MoSketch based on iterative optimization through Score Distillation Sampling (SDS) and thus animating a multi-object sketch in a training-data free manner. 
+To tackle the two challenges in a divide-and-conquer strategy, MoSketch has four novel modules, 
+*i.e.*, LLM-based scene decomposition, LLM-based motion planning, multi-grained motion refinement, and compositional SDS. 
+Extensive qualitative and quantitative experiments demonstrate the superiority of our method over existing sketch animation approaches. 
+MoSketch takes a pioneering step towards multi-object sketch animation, opening new avenues for future research and applications.
+
 ## 🔧 Setup
 Download the code of MoSketch.
 ```
@@ -71,6 +84,9 @@ python setup.py install
 cd ..
 rm -rf diffvg
 ```
+### ⬇️ Checkpoint of T2V Diffusion Model
+Download the checkpoint of [ModelScopeT2V](https://huggingface.co/ali-vilab/text-to-video-ms-1.7b/tree/main), 
+put the folder ('text-to-video-ms-1.7b') in the code of MoSketch.
 
 
 
