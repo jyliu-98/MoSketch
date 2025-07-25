@@ -26,14 +26,53 @@
 <img src="repo_image/intro.png"/>
 </div>
 
-<hr>
-
 ## :new: Latest Update
 - **[2025.07.28]** 🔥 We released the **project page** for **[MoSketch](https://rucmm.github.io/MoSketch)**.
 - **[2025.07.25]** 🔥 We released the **code** for **[MoSketch](https://github.com/jyliu-98/MoSketch)**.
 - **[2025.06.26]** 🎉 MoSketch is accepted by ICCV 2025!
 - **[2025.03.25]** 🔥 We released the **[MoSketch Paper](https://arxiv.org/abs/2503.19351)**. MoSketch is an iterative 
-optimization based and thus training-data free method, aiming to animate a multi-object sketch *w.r.t.* a specific textual instruction.
+optimization based and thus **training-data free** method, aiming to animate a multi-object sketch *w.r.t.* a specific textual instruction.
+
+## 🔧 Setup
+Download the code.
+```
+git clone https://github.com/jyliu-98/MoSketch.git
+cd MoSketch
+```
+### 📌 Environment
+Create a new anaconda environment and install dependencies.
+```
+# create a new anaconda env
+conda create -n momosketch python==3.8 -y
+conda activate momosketch
+
+# install torch and dependencies
+pip install -r requirements.txt
+```
+Install diffvg
+```
+# install diffvg's dependencies
+conda install -y -c anaconda cmake
+conda install -y -c conda-forge ffmpeg
+# ************************************************
+# if 'conda install -y -c conda-forge ffmpeg' gets stuck, try these:
+# conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+# conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+# conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+# conda config --set show_channel_urls yes
+# conda install -y ffmpeg
+# ************************************************
+
+# install diffvg
+git clone https://github.com/BachiLi/diffvg.git
+cd diffvg
+git submodule update --init --recursive
+python setup.py install
+cd ..
+rm -rf diffvg
+```
+
+
 
 
 
