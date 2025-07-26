@@ -115,7 +115,7 @@ while sketches created by [js.design](https://js.design/special/article/svg-onli
 ### 🚀 Quick Start
 The scene decomposition (`_decomp.txt`), point assignment (`_semantic.txt`) and motion plan (`_traj.txt`) of the **60 multi-object sketches**
 are provided in `./data/processed`. The text instruction of each sketch can be found in `./data/raw/60sketches/caption.txt`. 
-Run the following command to get the animation of one sketch (*e.g.*, 'basketball5'):
+Run this command to get the animation of one sketch (*e.g.*, 'basketball5'):
 ```
 CUDA_VISIBLE_DEVICES=0 python animate_mosketch.py \
         --sketch 'basketball5' \
