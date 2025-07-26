@@ -125,3 +125,7 @@ CUDA_VISIBLE_DEVICES=0 python animate_mosketch.py \
         --num_frames 20
 ```
 The output video will be saved in `./output/basketball5`.
+
+The scene decomposition, point assignment and motion plan of the **500 more created sketches** are provided in `./data/processed/560sketches.zip`.
+Use the above command to animate them!
+
