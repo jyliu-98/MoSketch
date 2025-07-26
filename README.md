@@ -88,11 +88,25 @@ rm -rf diffvg
 Download the checkpoint of [ModelScopeT2V](https://huggingface.co/ali-vilab/text-to-video-ms-1.7b/tree/main), and
 put it in the code of MoSketch (`./text-to-video-ms-1.7b`).
 
-
 ## ✍️ Input Sketch
 The input sketches should be provided in SVG format, where a sketch is composed of strokes 
-and each stroke is a cubic Bézier curve controlled by four points, as described in the paper.
+and each stroke is a cubic Bézier curve controlled by four points, as described in the paper. 
+Make sure the input sketches can be processed with diffvg.
 
-The 60 multi-object sketches used in the paper are provided in `./data/raw/60sketches`
+The **60 multi-object sketches** used in the paper are provided in `./data/raw/60sketches`.
+
+For own sketch preparation, if you want to generate sketches automatically, we recommend [CLIPasso](https://clipasso.github.io/clipasso/), 
+an image-to-sketch method that produces sketches in vector format; if you want to create sketches manually, you can use some free online tools, 
+such as [js.design](https://js.design/special/article/svg-online-editors.html). 
+Note that sketches created by [CLIPasso](https://clipasso.github.io/clipasso/) 
+
+Our preparation process:
+* Creating some single-object vector sketches by [CLIPasso](https://clipasso.github.io/clipasso/).
+* Using [js.design](https://js.design/special/article/svg-online-editors.html) to gather the single-object vector sketches in a reasonable scene.
+* Using [js.design](https://js.design/special/article/svg-online-editors.html) to add or delete strokes to complete the scene.
+* Save the multi-object sketch, and run `./preprocess.py` to make sure the sketch can be processed with diffvg.
+
+
+
 
 
