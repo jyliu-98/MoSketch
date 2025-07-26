@@ -27,8 +27,9 @@
 </div>
 
 ## :new: Latest Update
-- **[2025.07.28]** 🔥 We released the **[project page](https://rucmm.github.io/MoSketch)** for **MoSketch**.
-- **[2025.07.25]** 🔥 We released the **[code](https://github.com/jyliu-98/MoSketch)** for **MoSketch**.
+- **[2025.08.02]** 🔥 We released more created multi-object sketches! There are 560 multi-object sketches now! (`./data/raw/560sketches.zip`)
+- **[2025.07.29]** 🔥 We released the **[project page](https://rucmm.github.io/MoSketch)** for **MoSketch**.
+- **[2025.07.26]** 🔥 We released the **[code](https://github.com/jyliu-98/MoSketch)** for **MoSketch**.
 - **[2025.06.26]** 🎉 MoSketch is accepted by ICCV 2025!
 - **[2025.03.25]** 🔥 We released the **[MoSketch Paper](https://arxiv.org/abs/2503.19351)**. MoSketch is an iterative 
 optimization based and thus **training-data free** method, aiming to animate a multi-object sketch *w.r.t.* a specific textual instruction.
@@ -93,7 +94,7 @@ The input sketches should be provided in SVG format, where a sketch is composed 
 and each stroke is a cubic Bézier curve controlled by four points, as described in the paper. 
 Make sure the input sketches can be processed with diffvg.
 
-The **60 multi-object sketches** used in the paper are provided in `./data/raw/60sketches`.
+The **60 multi-object sketches** used in the paper are provided in `./data/raw/60sketches`. They can be processed with diffvg.
 
 For own sketch preparation, if you want to generate sketches automatically, we recommend [CLIPasso](https://clipasso.github.io/clipasso/), 
 an image-to-sketch method that produces sketches in vector format; if you want to create sketches manually, you can use some free online tools, 
@@ -107,6 +108,8 @@ while sketches created by [js.design](https://js.design/special/article/svg-onli
 * Using [js.design](https://js.design/special/article/svg-online-editors.html) to edit the multi-object sketch (*e.g.* add or delete strokes).
 * Save the multi-object sketch, and run `./preprocess.py` to make sure the sketch can be processed with diffvg.
 <img src="repo_image/creation.png"/>
+
+**We release 500 more created sketches!** There are 560 multi-object sketches now! (`./data/raw/560sketches.zip`)
 
 
 
