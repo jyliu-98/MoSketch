@@ -85,10 +85,14 @@ cd ..
 rm -rf diffvg
 ```
 ### ⬇️ Checkpoint of T2V Diffusion Model
-Download the checkpoint of [ModelScopeT2V](https://huggingface.co/ali-vilab/text-to-video-ms-1.7b/tree/main), 
-put the folder ('text-to-video-ms-1.7b') in the code of MoSketch.
+Download the checkpoint of [ModelScopeT2V](https://huggingface.co/ali-vilab/text-to-video-ms-1.7b/tree/main), and
+put it in the code of MoSketch (`./text-to-video-ms-1.7b`).
 
 
+## ✍️ Input Sketch
+The input sketches should be provided in SVG format, where a sketch is composed of strokes 
+and each stroke is a cubic Bézier curve controlled by four points, as described in the paper.
 
+The 60 multi-object sketches used in the paper are provided in `./data/raw/60sketches`
 
 
