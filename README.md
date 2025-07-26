@@ -27,7 +27,7 @@
 </div>
 
 ## :new: Latest Update
-- **[2025.08.02]** 🔥 We released more created multi-object sketches! There are 560 multi-object sketches now! (`./data/raw/560sketches.zip`)
+- **[2025.08.02]** 🔥 We released more created multi-object sketches! There are 560 multi-object sketches now!
 - **[2025.07.29]** 🔥 We released the **[project page](https://rucmm.github.io/MoSketch)** for **MoSketch**.
 - **[2025.07.26]** 🔥 We released the **[code](https://github.com/jyliu-98/MoSketch)** for **MoSketch**.
 - **[2025.06.26]** 🎉 MoSketch is accepted by ICCV 2025!
@@ -105,12 +105,23 @@ while sketches created by [js.design](https://js.design/special/article/svg-onli
 **Our preparation process:**
 * Creating some single-object vector sketches by [CLIPasso](https://clipasso.github.io/clipasso/).
 * Using [js.design](https://js.design/special/article/svg-online-editors.html) to gather the single-object vector sketches in a reasonable scene.
-* Using [js.design](https://js.design/special/article/svg-online-editors.html) to edit the multi-object sketch (*e.g.* add or delete strokes).
+* Using [js.design](https://js.design/special/article/svg-online-editors.html) to edit the multi-object sketch (*e.g.*, add or delete strokes).
 * Save the multi-object sketch, and run `./preprocess.py` to make sure the sketch can be processed with diffvg.
 <img src="repo_image/creation.png"/>
 
-**We release 500 more created sketches!** There are 560 multi-object sketches now! (`./data/raw/560sketches.zip`)
+**We release 500 more created sketches!** There are 560 vector multi-object sketches now! (`./data/raw/560sketches.zip`)
 
-
-
-
+## 🎨 Generate a Video!
+### 🚀 Quick Start
+The scene decomposition (`_decomp.txt`), point assignment (`_semantic.txt`) and motion plan (`_traj.txt`) of the **60 multi-object sketches**
+are provided in `./data/processed`. The text instruction of each sketch can be found in `./data/raw/60sketches/caption.txt`. 
+Run the following command to get the animation of one sketch (*e.g.*, 'basketball5'):
+```
+CUDA_VISIBLE_DEVICES=0 python animate_mosketch.py \
+        --sketch 'basketball5' \
+        --caption 'The player soars through the air with a basketball, arm extended for an electrifying slam dunk to a hoop.' \
+        --num_iter 500 \
+        --seed 130 \
+        --num_frames 20
+```
+The output video will be saved in `./output/basketball5`.
