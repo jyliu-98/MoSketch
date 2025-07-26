@@ -98,7 +98,8 @@ The **60 multi-object sketches** used in the paper are provided in `./data/raw/6
 For own sketch preparation, if you want to generate sketches automatically, we recommend [CLIPasso](https://clipasso.github.io/clipasso/), 
 an image-to-sketch method that produces sketches in vector format; if you want to create sketches manually, you can use some free online tools, 
 such as [js.design](https://js.design/special/article/svg-online-editors.html). 
-Note that sketches created by [CLIPasso](https://clipasso.github.io/clipasso/) 
+Note that sketches created by [CLIPasso](https://clipasso.github.io/clipasso/) can be processed with diffvg, 
+while sketches created by [js.design](https://js.design/special/article/svg-online-editors.html) should go through `./preprocess.py`.
 
 Our preparation process:
 * Creating some single-object vector sketches by [CLIPasso](https://clipasso.github.io/clipasso/).
