@@ -111,7 +111,7 @@ while sketches created by [js.design](https://js.design/special/article/svg-onli
 
 **We release 500 more created sketches!** There are 560 vector multi-object sketches now! (`./data/raw/560sketches.zip`)
 
-## 🎨 Generate a Video!
+## 🎥 Generate a Video!
 ### 🚀 Quick Start
 The scene decomposition (`_decomp.txt`), point assignment (`_semantic.txt`) and motion plan (`_traj.txt`) of the **60 multi-object sketches**
 are provided in `./data/processed`. The text instruction of each sketch can be found in `./data/raw/60sketches/caption.txt`. 
@@ -128,4 +128,4 @@ The output video will be saved in `./output/basketball5`.
 
 The scene decomposition, point assignment and motion plan of the **500 more created sketches** are provided in `./data/processed/560sketches.zip`.
 Use the above command to animate them!
-
+### 👩‍🎨 Animate Your Own Sketch
