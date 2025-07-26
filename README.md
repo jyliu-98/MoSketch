@@ -101,12 +101,12 @@ such as [js.design](https://js.design/special/article/svg-online-editors.html).
 Note that sketches created by [CLIPasso](https://clipasso.github.io/clipasso/) can be processed with diffvg, 
 while sketches created by [js.design](https://js.design/special/article/svg-online-editors.html) should go through `./preprocess.py`.
 
-Our preparation process:
+**Our preparation process:**
 * Creating some single-object vector sketches by [CLIPasso](https://clipasso.github.io/clipasso/).
 * Using [js.design](https://js.design/special/article/svg-online-editors.html) to gather the single-object vector sketches in a reasonable scene.
-* Using [js.design](https://js.design/special/article/svg-online-editors.html) to add or delete strokes to complete the scene.
+* Using [js.design](https://js.design/special/article/svg-online-editors.html) to edit the multi-object sketch (*e.g.* add or delete strokes).
 * Save the multi-object sketch, and run `./preprocess.py` to make sure the sketch can be processed with diffvg.
-
+<img src="repo_image/creation.png"/>
 
 
 
