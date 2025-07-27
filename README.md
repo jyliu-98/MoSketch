@@ -27,7 +27,7 @@
 </div>
 
 ## :new: Latest Update
-- **[2025.08.02]** 🔥 We released **more** created multi-object sketches! There are **560** multi-object sketches now!
+- **[2025.08.02]** 🔥 We released **more created multi-object sketches**! There are **560** multi-object sketches now!
 - **[2025.07.29]** 🔥 We released the **[project page](https://rucmm.github.io/MoSketch)** for **MoSketch**.
 - **[2025.07.26]** 🔥 We released the **[code](https://github.com/jyliu-98/MoSketch)** for **MoSketch**.
 - **[2025.06.26]** 🎉 MoSketch is accepted by ICCV 2025!
@@ -138,3 +138,5 @@ We recommend GPT-4, especially ChatGPT-4, to get the result and check it in real
 The instruction and examples are provided in `./data/examples-for-scene-decomposition`. 
 Save the result in `./data/processed/Yours/Yours_decomp.txt`, 
 and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/basketball5/basketball5_decomp.txt`). 
+#### 🧮 Point Assignment
+
