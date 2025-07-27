@@ -27,7 +27,7 @@
 </div>
 
 ## :new: Latest Update
-- **[2025.08.02]** 🔥 We released more created multi-object sketches! There are 560 multi-object sketches now!
+- **[2025.08.02]** 🔥 We released **more** created multi-object sketches! There are **560** multi-object sketches now!
 - **[2025.07.29]** 🔥 We released the **[project page](https://rucmm.github.io/MoSketch)** for **MoSketch**.
 - **[2025.07.26]** 🔥 We released the **[code](https://github.com/jyliu-98/MoSketch)** for **MoSketch**.
 - **[2025.06.26]** 🎉 MoSketch is accepted by ICCV 2025!
@@ -111,9 +111,9 @@ while sketches created by [js.design](https://js.design/special/article/svg-onli
 
 **We release 500 more created sketches!** There are 560 vector multi-object sketches now! (`./data/raw/560sketches.zip`)
 
-## 🎥 Generate a Video!
+## 🎥 Generate A Video!
 ### 🚀 Quick Start
-The scene decomposition (`_decomp.txt`), point assignment (`_semantic.txt`) and motion plan (`_traj.txt`) of the **60 multi-object sketches**
+The scene decomposition (`_decomp.txt`), the point assignment (`_semantic.txt`) and the motion plan (`_traj.txt`) of the **60 multi-object sketches**
 are provided in `./data/processed`. The text instruction of each sketch can be found in `./data/raw/60sketches/caption.txt`. 
 Run this command to get the animation of one sketch (*e.g.*, 'basketball5'):
 ```
@@ -128,4 +128,13 @@ The output video will be saved in `./output/basketball5`.
 
 The scene decomposition, point assignment and motion plan of the **500 more created sketches** are provided in `./data/processed/560sketches.zip`.
 Use the above command to animate them!
+
 ### 👩‍🎨 Animate Your Own Sketch
+The scene decomposition, the point assignment and the motion plan of your own multi-object sketch should be provided before animation,
+and the format should follow the 60 created sketches. Make a new folder `./data/processed/Your_Sketch`, and put the vector sketch (`Your_Sketch.svg`) in it.
+#### 🧩 Scene Decomposition
+We use LLM to get the scene decomposition of the multi-object sketch. The LLM is not limited.
+We recommend GPT-4, especially ChatGPT-4, to get the result and check it in real time. 
+The instruction and examples are provided in `./data/examples-for-scene-decomposition`. 
+After getting the scene decomposition result, save it in `./data/processed/Your_Sketch/Your_Sketch_decomp.txt`, 
+the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/basketball5/basketball5_decomp.txt`). 
