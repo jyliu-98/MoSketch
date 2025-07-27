@@ -131,10 +131,10 @@ Use the above command to animate them!
 
 ### 👩‍🎨 Animate Your Own Sketch
 The scene decomposition, the point assignment and the motion plan of your own multi-object sketch should be provided before animation,
-and the format should follow the 60 created sketches. Make a new folder `./data/processed/Your_Sketch`, and put the vector sketch (`Your_Sketch.svg`) in it.
+and the format should follow the 60 created sketches. Make a new folder `./data/processed/Yours`, and put the vector sketch (`Yours.svg`) in it.
 #### 🧩 Scene Decomposition
 We use LLM to get the scene decomposition of the multi-object sketch. The LLM is not limited.
 We recommend GPT-4, especially ChatGPT-4, to get the result and check it in real time. 
 The instruction and examples are provided in `./data/examples-for-scene-decomposition`. 
-Save the result in `./data/processed/Your_Sketch/Your_Sketch_decomp.txt`, 
+Save the result in `./data/processed/Yours/Yours_decomp.txt`, 
 and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/basketball5/basketball5_decomp.txt`). 
