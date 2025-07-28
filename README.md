@@ -182,3 +182,19 @@ and you can check it with color-object pairs printed in the output. Copy these f
 Adjust these three parameters flexibly during the stroke(point) assignment.
 * Sometimes object names should be replaced to get the correct object grounding in GoundingDino, 
 *e.g.*, 'basketball` &rarr; 'ball', 'player' &rarr; 'man'.
+* If there are more than one objects in sketch share the same name, repeat the name in `--text_prompt`. For example, 
+'hurdle9.svg' has three athletes:
+```
+export CUDA_VISIBLE_DEVICES=0
+python stroke_assignment.py \
+  --config GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py \
+  --grounded_checkpoint groundingdino_swint_ogc.pth \
+  --sam_checkpoint sam_vit_h_4b8939.pth \
+  --sketch_dir "sketch2" \
+  --sketch_img huldres6.png \
+  --box_threshold 0.2 \
+  --text_threshold 0.2 \
+  --iou_w 1.0 \
+  --text_prompt "hurdle,athlete,athlete,athlete" \
+  --device "cuda"
+```
