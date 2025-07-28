@@ -155,7 +155,7 @@ We employ [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anyth
 object grounding on the multi-object sketch, and then assign strokes to objects based on the bounding boxes. 
 
 First, Your should install [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything).
-Then Copy the code `MoSketch/stroke_assignment.py` in GoundingDino project.
+Then Copy the code `MoSketch/stroke_assignment.py` to GoundingDino project.
 Make a new folder `sketch` in GoundingDino project, and copy the SVG and PNG(256x256) of the sketch in it.
 Run `Grounded-Segment-Anything/stroke_assignment.py` (do not forget adding object names in the parameter`--text_prompt`).
 Use the sketch 'football7' as an example:
@@ -207,3 +207,6 @@ We should provide a sketch, a text caption and the object bounding boxes.
 The instruction and examples are provided in `./data/examples-for-motion-planning`. 
 Save the result in `./data/processed/Yours/Yours_traj.txt`, 
 and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/aircrafter3/aircrafter3_traj.txt`). 
+
+We highly recommend to check the motion plan. If you are not satisfy with the result, instruct the LLM for modification in time.
+The incorrect motion planning will lead to failed animation. Run to check the motion plan. 
