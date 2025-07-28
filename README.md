@@ -113,7 +113,7 @@ while sketches created by [js.design](https://js.design/special/article/svg-onli
 
 ## 🎥 Generate A Video!
 ### 🚀 Quick Start
-The scene decomposition (`_decomp.txt`), the point assignment (`_semantic.txt`) and the motion plan (`_traj.txt`) of the **60 multi-object sketches**
+The scene decomposition (`_decomp.txt`), the stroke assignment (`_semantic.txt`) and the motion plan (`_traj.txt`) of the **60 multi-object sketches**
 are provided in `./data/processed`. The text instruction of each sketch can be found in `./data/raw/60sketches/caption.txt`. 
 Run this command to get the animation of one sketch (*e.g.*, 'basketball5'):
 ```
@@ -138,5 +138,5 @@ We recommend GPT-4, especially ChatGPT-4, to get the result and check it in real
 The instruction and examples are provided in `./data/examples-for-scene-decomposition`. 
 Save the result in `./data/processed/Yours/Yours_decomp.txt`, 
 and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/basketball5/basketball5_decomp.txt`). 
-#### 🧮 Point Assignment
+#### 🧮 Stroke Assignment
 
