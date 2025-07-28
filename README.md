@@ -144,6 +144,7 @@ and the format should follow the 60 created sketches. Make a new folder `./data/
 #### 🧩 Scene Decomposition
 We use LLM to get the scene decomposition of the multi-object sketch. The LLM is not limited.
 We recommend GPT-4, especially ChatGPT-4, to get the result and check it in real time. 
+We should provide a sketch and a text caption.
 The instruction and examples are provided in `./data/examples-for-scene-decomposition`. 
 Save the result in `./data/processed/Yours/Yours_decomp.txt`, 
 and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/aircrafter3/aircrafter3_decomp.txt`). 
@@ -200,4 +201,9 @@ python stroke_assignment.py \
 ```
 
 #### 🚗 Motion Planning
-
+We use LLM to get the motion plan of the multi-object sketch. 
+We also recommend ChatGPT-4 to get the result and check it in real time. 
+We should provide a sketch, a text caption and the object bounding boxes.
+The instruction and examples are provided in `./data/examples-for-motion-planning`. 
+Save the result in `./data/processed/Yours/Yours_traj.txt`, 
+and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/aircrafter3/aircrafter3_traj.txt`). 
