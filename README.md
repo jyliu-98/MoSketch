@@ -94,6 +94,12 @@ The input sketches should be provided in SVG format, where a sketch is composed 
 and each stroke is a cubic Bézier curve controlled by four points, as described in the paper. 
 Make sure the input sketches can be processed with diffvg.
 
+**Recommended sketch format:**
+* Rendering size: 256x256
+* Number of strokes: <300
+* Strokes type: cubic Bezier curves
+* Stroke width: 1~3
+
 The **60 multi-object sketches** used in the paper are provided in `./data/raw/60sketches`. They can be processed with diffvg.
 
 For own sketch preparation, if you want to generate sketches automatically, we recommend [CLIPasso](https://clipasso.github.io/clipasso/), 
@@ -116,7 +122,7 @@ python preprocess.py --svg_path './data/raw/Yours.svg'
 
 ## 🎥 Generate A Video!
 ### 🚀 Quick Start
-The scene decomposition (`_decomp.txt`), the stroke assignment (`_semantic.txt`) and the motion plan (`_traj.txt`) of the **60 multi-object sketches**
+The scene decomposition (`_decomp.txt`), the stroke(point) assignment (`_semantic.txt`) and the motion plan (`_traj.txt`) of the **60 multi-object sketches**
 are provided in `./data/processed`. The text instruction of each sketch can be found in `./data/raw/60sketches/caption.txt`. 
 Run this command to get the animation of one sketch (*e.g.*, 'basketball5'):
 ```
@@ -129,7 +135,7 @@ CUDA_VISIBLE_DEVICES=0 python animate_mosketch.py \
 ```
 The output video will be saved in `./output/basketball5`.
 
-The scene decomposition, point assignment and motion plan of the **500 more created sketches** are provided in `./data/processed/560sketches.zip`.
+The scene decomposition, stroke(point) assignment and motion plan of the **500 more created sketches** are provided in `./data/processed/560sketches.zip`.
 Use the above command to animate them!
 
 ### 👩‍🎨 Animate Your Own Sketch
@@ -140,6 +146,33 @@ We use LLM to get the scene decomposition of the multi-object sketch. The LLM is
 We recommend GPT-4, especially ChatGPT-4, to get the result and check it in real time. 
 The instruction and examples are provided in `./data/examples-for-scene-decomposition`. 
 Save the result in `./data/processed/Yours/Yours_decomp.txt`, 
-and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/basketball5/basketball5_decomp.txt`). 
-#### 🧮 Stroke Assignment
+and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/aircrafter3/aircrafter3_decomp.txt`). 
+#### 🧮 Stroke(point) Assignment
+The stroke(point) assignment aims to assign the strokes, as well as the control points, to their belonging objects. 
+The stroke(point) assignment is actually the object segmentation task in vector sketch. 
+We employ [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything) to conduct 
+object grounding on the multi-object sketch, and then assign strokes to objects based on the bounding boxes. 
+
+First, Your should install [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything).
+Then Copy the code `./stroke_assignment.py` in GoundingDino project.
+Make a new folder `sketch` in GoundingDino project, and copy the SVG and PNG(256x256) of the sketch in it.
+Run `./stroke_assignment.py` (do not forget adding objects in the parameter`--text_prompt`).
+Use the sketch 'football7' as an example:
+```
+export CUDA_VISIBLE_DEVICES=0
+python stroke_assignment.py \
+  --config GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py \
+  --grounded_checkpoint groundingdino_swint_ogc.pth \
+  --sam_checkpoint sam_vit_h_4b8939.pth \
+  --sketch_dir "sketch" \
+  --sketch_img football7.png \
+  --box_threshold 0.2 \
+  --text_threshold 0.2 \
+  --iou_w 1.0 \
+  --text_prompt "soccer player,goalkeeper,ball,goal" \
+  --device "cuda"
+```
+The stroke(point) assignment are saved in `football7_semantic.txt`, which lists objects and their strokes (IDs in SVG).
+Objects' bounding boxes are written in `football7_bbox.txt`. `football7_color.svg` is the visualization of stroke(point) assignment, 
+and you can check it with color-object pairs printed in the output. Copy these files to the processed folder (`./data/processed/football7`).
 
