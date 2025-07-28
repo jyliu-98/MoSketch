@@ -154,9 +154,9 @@ We employ [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anyth
 object grounding on the multi-object sketch, and then assign strokes to objects based on the bounding boxes. 
 
 First, Your should install [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything).
-Then Copy the code `./stroke_assignment.py` in GoundingDino project.
+Then Copy the code `MoSketch/stroke_assignment.py` in GoundingDino project.
 Make a new folder `sketch` in GoundingDino project, and copy the SVG and PNG(256x256) of the sketch in it.
-Run `./stroke_assignment.py` (do not forget adding object names in the parameter`--text_prompt`).
+Run `Grounded-Segment-Anything/stroke_assignment.py` (do not forget adding object names in the parameter`--text_prompt`).
 Use the sketch 'football7' as an example:
 ```
 export CUDA_VISIBLE_DEVICES=0
@@ -174,7 +174,7 @@ python stroke_assignment.py \
 ```
 The stroke(point) assignment are saved in `football7_semantic.txt`, which lists objects and their strokes (IDs in SVG).
 Objects' bounding boxes are written in `football7_bbox.txt`. `football7_color.svg` is the visualization of stroke(point) assignment, 
-and you can check it with color-object pairs printed in the output. Copy these files to the processed folder (`./data/processed/football7`).
+and you can check it with color-object pairs printed in the output. Copy these files to the processed folder (`MoSketch/data/processed/football7`).
 
 **Note that:**
 * `--box_threshold` and `--text_threshold` are the semantic thresholds in GoundingDino. 
@@ -182,7 +182,7 @@ and you can check it with color-object pairs printed in the output. Copy these f
 Adjust these three parameters flexibly during the stroke(point) assignment.
 * Sometimes object names should be replaced to get the correct object grounding in GoundingDino, 
 *e.g.*, 'basketball` &rarr; 'ball', 'player' &rarr; 'man'.
-* If there are more than one objects in sketch share the same name, repeat the name in `--text_prompt`. For example, 
+* If there are more than one objects in sketch sharing the same name, repeat the name in `--text_prompt`. For example, 
 'hurdle9.svg' has three athletes:
 ```
 export CUDA_VISIBLE_DEVICES=0
@@ -198,3 +198,6 @@ python stroke_assignment.py \
   --text_prompt "hurdle,athlete,athlete,athlete" \
   --device "cuda"
 ```
+
+#### 🚗 Motion Planning
+
