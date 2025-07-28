@@ -139,7 +139,7 @@ The scene decomposition, stroke(point) assignment and motion plan of the **500 m
 Use the above command to animate them!
 
 ### 👩‍🎨 Animate Your Own Sketch
-The scene decomposition, the point assignment and the motion plan of your own multi-object sketch should be provided before animation,
+The scene decomposition, the stroke(point) assignment and the motion plan of your own multi-object sketch should be provided before animation,
 and the format should follow the 60 created sketches. Make a new folder `./data/processed/Yours`, and put the vector sketch (`Yours.svg`) in it.
 #### 🧩 Scene Decomposition
 We use LLM to get the scene decomposition of the multi-object sketch. The LLM is not limited.
@@ -156,7 +156,7 @@ object grounding on the multi-object sketch, and then assign strokes to objects 
 First, Your should install [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything).
 Then Copy the code `./stroke_assignment.py` in GoundingDino project.
 Make a new folder `sketch` in GoundingDino project, and copy the SVG and PNG(256x256) of the sketch in it.
-Run `./stroke_assignment.py` (do not forget adding objects in the parameter`--text_prompt`).
+Run `./stroke_assignment.py` (do not forget adding object names in the parameter`--text_prompt`).
 Use the sketch 'football7' as an example:
 ```
 export CUDA_VISIBLE_DEVICES=0
@@ -176,3 +176,9 @@ The stroke(point) assignment are saved in `football7_semantic.txt`, which lists 
 Objects' bounding boxes are written in `football7_bbox.txt`. `football7_color.svg` is the visualization of stroke(point) assignment, 
 and you can check it with color-object pairs printed in the output. Copy these files to the processed folder (`./data/processed/football7`).
 
+**Note that:**
+* `--box_threshold` and `--text_threshold` are the semantic thresholds in GoundingDino. 
+`--iou_w` is a parameter about the object overlap (more `--iou_w` means more tolerance for overlap).
+Adjust these three parameters flexibly during the stroke(point) assignment.
+* Sometimes object names should be replaced to get the correct object grounding in GoundingDino, 
+*e.g.*, 'basketball` &rarr; 'ball', 'player' &rarr; 'man'.
