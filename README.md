@@ -209,4 +209,4 @@ Save the result in `./data/processed/Yours/Yours_traj.txt`,
 and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/aircrafter3/aircrafter3_traj.txt`). 
 
 We highly recommend to check the motion plan. If you are not satisfy with the result, instruct the LLM for modification in time.
-The incorrect motion planning will lead to failed animation. Run to check the motion plan. 
+The incorrect motion planning will lead to failed animation. Run `./view_plan.py` to visualize the motion plan. 
