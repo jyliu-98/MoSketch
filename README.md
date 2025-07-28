@@ -101,6 +101,9 @@ an image-to-sketch method that produces sketches in vector format; if you want t
 such as [js.design](https://js.design/special/article/svg-online-editors.html). 
 Note that sketches created by [CLIPasso](https://clipasso.github.io/clipasso/) can be processed with diffvg, 
 while sketches created by [js.design](https://js.design/special/article/svg-online-editors.html) should go through `./preprocess.py`.
+```
+python preprocess.py --svg_path './data/raw/Yours.svg'
+```
 
 **Our preparation process:**
 * Creating some single-object vector sketches by [CLIPasso](https://clipasso.github.io/clipasso/).
