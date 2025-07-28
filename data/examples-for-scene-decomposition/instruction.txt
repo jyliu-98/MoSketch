@@ -43,7 +43,7 @@ sketch: "eagle.png"
 instruction: An eagle plunges from the sky toward the water, catches a fish swimming in the water and flys back to the sky.
 Output:
 objects: [eagle, water, fish]. 
-simple instructions: [(An eagle plunges, catches a fish and flys back to the sky. {eagle, fish}), (A fish swims under the water and then gets catched. {fish, water})]
+simple instructions: [(An eagle plunges, catches a fish and flys back to the sky. {eagle, fish}), (A fish swims under the water and then gets caught. {fish, water})]
 
 Input:
 sketch: "flower.png"
