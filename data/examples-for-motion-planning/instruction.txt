@@ -1,0 +1,157 @@
+You are an intelligent Motion Planning Assistant for Multi-object Sketch Animation. A sketch, an instruction to animate it and each object's bounding box is provided. You should predict the bounding box of each object in 20 frames according to the reasonable inference. Note that the movement should follow the laws of physics such as inertia and gravity. If the sketch is in the first person, then the rule that objects far away are small and objects near are large should also be considered. Don’t forget considering the interaction or relationship of objects. The image size is 256 * 256, and objects should appear in the image as far as possible. Show me the reasoning process before planning.
+The output format is:
+The reasoning process: ...
+motion plan:
+[(object1: [[x1, y1, w1, h1] ,..., [x20, y20, w20, h20]]), (object2...]
+I will give you some example first:
+
+Input:
+sketch: "basketball_shot.png"
+instruction: A basketball player takes a jump shot, aiming for the hoop, with the basketball mid-air and heading towards the hoop.
+objects with bounding boxes: 
+basketball player: [36,83,45,147]
+basketball: [52,75,23,22]
+hoop: [137,21,93,138]
+Output:
+the reasoning process: From the scene sketch and input bounding boxes, the basketball player is in the left-down of the sketch, the basketball is held by the man, and the hoop is in the right of the sketch.  So the basketball's x-coordinate should increase, and the basketball's y-coordinate should first decrease (upward movement) then increase (downward movement due to gravity). The basketball player's x-coordinate may increase a little due to the inertia, and the basketball player's y-coordinate should first decrease (upward movement) then increase (downward movement due to gravity). The hoop's coordinates should not change.
+motion plan:
+basketball player: [36,83,45,147],[37,80,45,147],[38,78,45,147],[39,75,45,147],[40,73,45,147],[41,71,45,147],[42,68,45,147],[43,66,45,147],[44,63,45,147],[45,61,45,147],[47,59,45,147],[46,61,45,147],[45,63,45,147],[44,66,45,147],[43,68,45,147],[42,71,45,147],[41,73,45,147],[40,75,45,147],[39,78,45,147],[38,80,45,147]
+basketball: [52,75,23,22],[58,68,23,22],[64,61,23,22],[70,54,23,22],[76,47,23,22],[82,40,23,22],[88,33,23,22],[94,26,23,22],[100,19,23,22],[106,12,23,22],[113,5,23,22],[118,8,23,22],[124,11,23,22],[130,14,23,22],[135,18,23,22],[141,21,23,22],[147,24,23,22],[152,28,23,22],[158,31,23,22],[164,34,23,22]
+hoop: [137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138],[137,21,93,138]
+
+Input:
+sketch: "arrow.png"
+instruction: A man draws a  bow powerfully, releasing an arrow toward a target.
+objects with bounding boxes: 
+man: [169,94,67,98]
+arrow: [146,110,90,5]
+bow: [170,69,68,88]
+target: [26,91,43,91]
+Output:
+the reasoning process: From the scene sketch and input bounding boxes, man with an arrow and a bow is in the right of the sketch, and the target is in the left of the sketch.  The man's and the target's coordinates should not change. The arrow's x-coordinate should decrease(leftward movement), and finally overlaps with the target; the y-coodinate should increase(downward movement due to gravity), but just a little because the arrow flys fast. The bow's x-coordinate should not change, and the y-coodinate should decrease (after releasing the arrow, the man puts down the bow).
+motion plan:
+man: [169,94,67,98],[169,94,67,98],[169,94,66,98],[169,94,66,98],[169,94,66,98],[169,94,65,98],[170,94,65,98],[170,94,65,98],[170,94,65,98],[170,94,64,98],[170,94,64,98],[170,94,64,98],[171,94,63,98],[171,94,63,98],[171,94,63,98],[171,94,62,98],[171,94,62,98],[171,94,62,98],[172,94,61,98],[172,94,61,98]
+arrow: [146,110,90,5],[141,110,90,5],[137,110,90,5],[133,110,90,5],[129,110,90,5],[125,110,90,5],[121,110,90,5],[117,110,90,5],[113,111,90,5],[109,111,90,5],[105,111,90,5],[101,111,90,5],[97,111,90,5],[93,111,90,5],[89,111,90,5],[85,111,90,5],[81,112,90,5],[77,112,90,5],[73,112,90,5],[69,112,90,5]
+bow: [170,69,68,88],[170,69,66,88],[170,70,64,88],[170,71,62,88],[170,72,60,88],[170,73,58,88],[170,74,56,88],[170,75,54,88],[170,76,52,88],[170,77,50,88],[170,78,48,88],[170,79,46,88],[170,80,45,89],[170,80,43,89],[170,81,41,89],[170,82,39,89],[170,83,37,89],[170,84,35,89],[170,85,33,89],[170,86,31,89]
+target: [26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91],[26,91,43,91]
+
+Input:
+sketch: "bus_overtake.png"
+instruction: A man is walking towards left on the road with a bus following him, speeding up and overtaking him.
+objects with bounding boxes: 
+man: [145,138,11,31]
+bus: [165,136,64,35]
+road: [23,83,211,91]
+Output:
+the reasoning process: From the scene sketch and input bounding boxes, the road should not move. And the man's and bus's x-coordinate should decrease because they are towards left. The change of x-coordinate of the bus should be larger than the man, because the bus is going to overtake the man. And the y-coordinate of the bus should be first decrease then increase, because the bus need to change lanes to overtake the man.
+motion plan:
+man: [145,138,11,31],[143,138,11,31],[141,138,11,31],[139,138,11,31],[137,138,11,31],[136,138,11,31],[134,138,11,31],[132,138,11,31],[130,138,11,31],[128,138,11,31],[127,138,11,31],[125,137,11,31],[124,137,11,31],[123,137,11,31],[121,137,11,31],[120,137,11,31],[119,137,11,31],[117,137,11,31],[116,137,11,31],[115,137,11,31]
+bus: [165,136,64,35],[159,131,64,35],[153,126,64,35],[147,121,64,35],[141,116,64,35],[135,111,64,35],[129,106,64,35],[123,101,64,35],[117,96,64,35],[111,91,64,35],[106,87,64,35],[97,91,64,35],[88,96,64,35],[80,100,64,35],[71,105,64,35],[63,109,64,35],[54,114,64,35],[45,118,64,35],[37,123,64,35],[28,127,64,35]
+road: [23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91],[23,83,211,91]
+
+Input:
+sketch: "butterfly.png"
+instruction: The flower gently sways in a soft breeze, while two butterflies flutter gracefully around it. 
+objects with bounding boxes: 
+flower: [102,90,53,130]
+butterfly1: [48,127,45,38]
+butterfly2: [172,52,45,38]
+Output:
+Output:
+the reasoning process: From the scene sketch and input bounding boxes, the flower is in the middle of sketch, butterfly1 is in the left of flower and butterfly2 is in the right of flower. The flower's y-coodinate should not change, and the x-coodinate could change a little or not (swaying in a soft breeze). The two butterflies 's coordinates should not change a lot(fluttering gracefully), might move toward a random direction, and the two butterflies should not overlap with the flower.
+motion plan:
+flower: [102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130],[102,90,53,130]
+butterfly1: [48,127,45,38],[48,124,45,38],[49,122,45,38],[50,120,45,38],[50,118,45,38],[51,116,45,38],[52,114,45,38],[52,112,45,38],[53,110,45,38],[54,108,45,38],[54,106,45,38],[55,104,45,38],[56,102,45,38],[56,99,45,38],[57,97,45,38],[58,95,45,38],[58,93,45,38],[59,91,45,38],[60,89,45,38],[60,87,45,38]
+butterfly2: [172,52,45,38],[169,50,45,38],[166,49,45,38],[163,47,45,38],[161,46,45,38],[158,44,45,38],[155,43,45,38],[152,41,45,38],[150,40,45,38],[147,38,45,38],[144,37,45,38],[141,35,45,38],[139,34,45,38],[136,33,45,38],[133,31,45,38],[130,30,45,38],[128,28,45,38],[125,27,45,38],[122,25,45,38],[119,24,45,38]
+
+Input:
+sketch: "dolphin.png"
+instruction: A dolphin bursts energetically from a pool, arcing leftward to hit a ball mid-flight. The ball, traveling from the left-up, contacts with the dolphin's snout, causing a dramatic rebound to the right-up. Then the dolphin gracefully re-enters the pool.
+objects with bounding boxes: 
+dolphin: [154,114,61,84]
+pool: [33,135,198,115]
+ball: [58,26,21,23]
+Output:
+the reasoning process: From the scene sketch and input bounding boxes, the pool should not move. The dolphin jump from the pool and to the left, so the dolphin's x-coordinate should decrease due to inertia, and y-coordinate should first decrease (upward movement) then increase (downward movement due to gravity). The ball is from left to the right, so the ball's x-coordinate should increase. Due to gravity, the ball's y-coordinate should increase (downward movement), after hit by the dolphin, the ball will bounce, then the ball's y-coordinate should decrease (upward movement). The bounding boxes of ball and dolphin will overlap a little in middle frames because of the interaction.
+motion plan:
+dolphin: [154,114,61,84],[151,111,61,84],[148,108,61,84],[145,105,61,84],[142,102,61,84],[139,100,61,84],[136,97,61,84],[133,94,61,84],[130,91,61,84],[127,88,61,84],[124,86,61,84],[115,88,62,83],[106,90,64,82],[98,93,66,81],[90,95,68,80],[81,98,70,79],[73,100,72,78],[64,102,74,77],[56,105,76,76],[47,107,78,75]
+pool: [33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115],[33,135,198,115]
+ball: 
+[58,26,21,23],[64,30,21,23],[70,34,21,23],[76,38,21,23],[83,42,21,23],[89,47,21,23],[95,51,21,23],[102,55,21,23],[108,59,21,23],[114,63,21,23],[121,68,21,23],[128,63,21,23],[135,59,21,23],[142,55,21,23],[149,50,21,23],[157,46,21,23],[164,42,21,23],[171,37,21,23],[178,33,21,23],[185,29,21,23]
+
+Input:
+sketch: "eagle.png"
+instruction: An eagle plunges from the sky toward the water, catches a fish swimming in the water and flys back to the sky.
+objects with bounding boxes: 
+eagle: [31,78,75,59]
+water: [8,165,240,6]
+fish: [163,174,43,22]
+Output:
+the reasoning process: From the scene sketch and input bounding boxes, the eagle is in the left of the sketch, the fish is in the right of the sketch and the fish is under the water but close to the waterface. The water's coordinates should not change. The eagle's x-coordinate should always increase due to the inertia, the y-coordinate should first increase (downward movement due to plunging) then decrease (upward movement due to flying back to the sky). The bounding boxes of the eagle should overlap a little with the water and the fish in the middle of the video (catching the fish in the water), but should not be under the water (eagles always catch fishes in the waterface). The fish's x-coordinate should first decrease (leftward movement) and the y-coodinate should not change too much (the fish should keep itself near the waterface). When overlapping with the eagle, the fish's coordinates should share the same movement with the eagle (get caught by the eagle). 
+motion plan:
+eagle: [31,78,75,59],[35,79,75,59],[40,81,75,59],[45,82,76,59],[50,84,76,60],[54,85,77,60],[59,87,77,60],[64,89,77,60],[68,90,78,61],[73,92,78,61],[78,93,79,61],[83,95,79,61],[88,97,80,62],[93,94,80,62],[99,91,80,62],[104,89,80,62],[110,86,80,62],[115,84,80,62],[121,81,81,62],[127,78,81,62]
+water: [8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6],[8,165,240,6]
+fish: [163,174,43,22],[159,171,43,22],[155,169,43,23],[151,167,43,24],[147,165,43,25],[143,163,43,26],[139,161,43,27],[135,159,43,27],[131,157,43,28],[127,155,43,29],[123,153,43,30],[119,151,43,31],[116,149,43,32],[120,146,43,31],[124,143,43,30],[128,140,43,29],[133,137,43,28],[137,134,43,27],[141,132,43,27],[145,129,43,26]
+
+Input:
+sketch: "flower.png"
+instruction: A watering pot is watering a growing flower swaying gently from side to side.
+objects with bounding boxes: 
+watering pot: [137,135,75,54]
+water: [107,164,33,29]
+flower: [71,75,57,156]
+Output:
+the reasoning process: From the scene sketch and input bounding boxes, the flower is in the middle of the sketch, the watering pot is in the right of the sketch, and the water is between the flower and the watering pot. The flower's y-coordinate should not change, and the x-coordinate should get a slight simple harmonic change (swaying gently from side to side) or not. The watering pot should move away from the flower (after watering) or not change. The water' s bounding box should gradually overlap with and finally be inside of the flower's bounding box (the water is absorbed by the flower).
+motion plan:
+watering pot: [137,135,75,54],[138,135,74,53],[139,135,74,53],[140,135,74,52],[141,135,74,52],[142,135,74,52],[143,135,74,51],[144,135,74,51],[145,135,74,51],[146,135,73,50],[147,135,73,50],[148,135,73,49],[150,135,73,49],[151,135,73,49],[152,135,73,48],[153,135,73,48],[154,135,73,48],[155,135,72,47],[156,135,72,47],[157,135,72,46]
+water: [107,164,33,29],[106,165,32,28],[105,166,32,27],[104,167,32,26],[103,168,32,25],[102,169,32,24],[101,170,32,23],[100,171,32,22],[99,173,32,22],[98,174,32,21],[97,175,32,20],[96,176,32,19],[96,177,32,18],[95,178,31,17],[94,179,31,16],[93,180,31,15],[92,182,31,15],[91,183,31,14],[90,184,31,13],[89,185,31,12]
+flower: [71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156],[71,75,57,156]
+
+Input:
+sketch: "pullup.png"
+instruction: A man is trying his best to do pull-ups on a horizontal bar.
+objects with bounding boxes: From the scene sketch and input bounding boxes, the man and the horizontal bar are in the middle of the sketch. The horizontal bar's coodinates should not change. The man's x-coordinate should change, while the y-coordinate should monotonically decrease (trying best to do pull-up, the man might be able to finish one slowly). The movement of the man's y-coordinate may be the half of the man's height (a man's movement when doing pull-ups).
+man: [114,107,34,77]
+horizontal bar: [72,69,118,171]
+Output:
+the reasoning process: 
+motion plan:
+man: [114,107,34,77],[114,105,33,76],[114,104,33,76],[114,102,33,76],[114,101,33,75],[114,99,33,75],[114,98,33,75],[114,96,32,74],[114,95,32,74],[114,93,32,74],[114,92,32,73],[114,90,32,73],[114,89,32,73],[114,88,31,72],[114,86,31,72],[114,85,31,72],[114,83,31,71],[114,82,31,71],[114,80,31,71],[114,79,30,70]
+horizontal bar: [72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171],[72,69,118,171]
+
+Input:
+sketch: "piano.png"
+instruction: A cat is standing and dancing to the music while a man is playing piano.
+objects with bounding boxes: From the scene sketch and input bounding boxes, the man and the piano are in the right of the sketch, and the cat is in the left of the sketch. The man and the piano's coordinates should not change. The cat's coordinates might change slightly (dancing).
+cat: [12,124,83,98]
+man: [195,68,48,116]
+piano: [120,58,89,126]
+Output:
+the reasoning process: 
+motion plan:
+cat: [12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98],[12,124,83,98]
+man: [195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116],[195,68,48,116]
+piano: [120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126],[120,58,89,126]
+
+Input:
+sketch: "horsefight.png"
+instruction: Two man are riding horses towards each other on a steep slope. They are fighting with swords.
+objects with bounding boxes: 
+man1: [182,40,30,45]
+horse1: [162,36,84,78]
+sword1: [205,32,21,21]
+man2: [32,133,38,42]
+horse2: [23,124,80,85]
+sword2: [8,140,29,17]
+slope: [8,50,243,214]
+Output:
+the reasoning process: From the scene sketch and input bounding boxes, the man1, the horse1 and the sword1 are in the right-up of the sketch, while the man2, the horse2 and the sword2 are in the left-down of the sketch. The slope's coordinates should not change. The man1, the horse1 and the sword1's x-coodinates should decrease and y-coodinates should increase (moving towards the man2, the horse2 and the sword2 in the left-down of the sketch). The man2, the horse2 and the sword2's x-coodinates should increase and y-coodinates should decrease (moving towards the man1, the horse1 and the sword1 in the right-up of the sketch). Man, horse and sword share the same movement. The horse1 and horse2 should get touched finally and the sword1 and the sword2 should overlap (fighting).
+motion plan:
+man1: [182,40,30,45],[180,41,30,45],[178,43,30,45],[176,44,30,45],[174,46,31,45],[172,47,31,45],[170,49,31,45],[168,50,31,45],[167,52,32,45],[165,53,32,45],[163,55,32,45],[161,56,32,45],[159,58,33,45],[157,59,33,45],[155,61,33,45],[153,62,33,45],[152,64,34,45],[150,65,34,45],[148,67,34,45],[146,68,34,45]
+horse1: [162,36,84,78],[160,37,84,78],[159,39,84,78],[157,40,84,78],[156,42,84,78],[154,43,84,78],[153,45,84,78],[152,46,84,78],[150,48,84,78],[149,49,84,78],[147,51,84,78],[146,52,84,78],[145,54,84,78],[143,55,84,78],[142,57,84,78],[140,58,84,78],[139,60,84,78],[137,61,84,78],[136,63,84,78],[135,64,84,78]
+sword1: [205,32,21,21],[201,33,21,20],[197,35,21,20],[193,37,22,20],[189,38,22,20],[185,40,22,20],[182,42,23,20],[178,43,23,19],[174,45,23,19],[170,47,24,19],[166,49,24,19],[162,50,24,19],[159,52,25,19],[155,54,25,18],[151,55,25,18],[147,57,26,18],[143,59,26,18],[139,61,26,18],[136,62,27,18],[132,64,27,17]
+man2: [32,133,38,42],[34,131,37,42],[36,130,37,42],[39,129,36,42],[41,128,36,43],[43,127,35,43],[46,126,35,43],[48,125,35,43],[50,124,34,44],[53,122,34,44],[55,121,33,44],[57,120,33,44],[60,119,33,45],[62,118,32,45],[64,117,32,45],[67,116,31,45],[69,115,31,46],[71,113,30,46],[74,112,30,46],[76,111,30,46]
+horse2: [23,124,80,85],[24,123,80,85],[26,122,80,85],[28,121,80,85],[30,120,80,85],[32,120,80,85],[34,119,80,85],[36,118,80,85],[38,117,80,85],[40,116,80,85],[42,116,80,85],[44,115,80,85],[46,114,80,85],[47,113,80,85],[49,112,80,85],[51,112,80,85],[53,111,80,85],[55,110,80,85],[57,109,80,85],[59,108,80,85]
+sword2: [8,140,29,17],[12,137,28,17],[16,135,27,17],[20,132,27,18],[24,130,26,18],[28,127,26,19],[32,125,25,19],[36,122,25,19],[40,120,24,20],[44,117,24,20],[48,115,23,21],[52,112,23,21],[57,110,22,22],[61,108,21,22],[65,105,21,22],[69,103,20,23],[73,100,20,23],[77,98,19,24],[81,95,19,24],[85,93,18,24]
+slope: [8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214],[8,50,243,214]
+
