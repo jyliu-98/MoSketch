@@ -232,6 +232,28 @@ python view_plan.py \
 ```
 The motion plan will be saved as `./data/processed/Yours/Yours_color.gif`
 
+<div style="display: flex; justify-content: space-between;">
+  <img src="repo_image/plan/1.png" width="12.4%">
+  <img src="repo_image/plan/1.gif" width="12.4%">
+  <img src="repo_image/plan/2.png" width="12.4%">
+  <img src="repo_image/plan/2.gif" width="12.4%">
+  <img src="repo_image/plan/3.png" width="12.4%">
+  <img src="repo_image/plan/3.gif" width="12.4%">
+  <img src="repo_image/plan/4.png" width="12.4%">
+  <img src="repo_image/plan/4.gif" width="12.4%">
+</div>
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="repo_image/plan/5.png" width="12.4%">
+  <img src="repo_image/plan/5.gif" width="12.4%">
+  <img src="repo_image/plan/6.png" width="12.4%">
+  <img src="repo_image/plan/6.gif" width="12.4%">
+  <img src="repo_image/plan/7.png" width="12.4%">
+  <img src="repo_image/plan/7.gif" width="12.4%">
+  <img src="repo_image/plan/8.png" width="12.4%">
+  <img src="repo_image/plan/8.gif" width="12.4%">
+</div>
+
 After getting the scene decomposition (`Yours_decomp.txt`), the stroke(point) assignment (`Yours_semantic.txt`) 
 and the motion plan (`Yours_traj.txt`) of your own multi-object sketch in the folder `./data/processed/Yours`, 
 run `./animate_mosketch.py` to get the final animation of your own sketch: 
