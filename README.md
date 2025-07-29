@@ -233,14 +233,14 @@ python view_plan.py \
 The motion plan will be saved as `./data/processed/Yours/Yours_color.gif`
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="repo_image/plan/1.png" width="12.3%">
-  <img src="repo_image/plan/1.gif" width="12.3%">
-  <img src="repo_image/plan/2.png" width="12.3%">
-  <img src="repo_image/plan/2.gif" width="12.3%">
-  <img src="repo_image/plan/3.png" width="12.3%">
-  <img src="repo_image/plan/3.gif" width="12.3%">
-  <img src="repo_image/plan/4.png" width="12.3%">
-  <img src="repo_image/plan/4.gif" width="12.3%">
+  <img src="repo_image/plan/1.png" width="12%">
+  <img src="repo_image/plan/1.gif" width="12%">
+  <img src="repo_image/plan/2.png" width="12%">
+  <img src="repo_image/plan/2.gif" width="12%">
+  <img src="repo_image/plan/3.png" width="12%">
+  <img src="repo_image/plan/3.gif" width="12%">
+  <img src="repo_image/plan/4.png" width="12%">
+  <img src="repo_image/plan/4.gif" width="12%">
 </div>
 
 <div style="display: flex; justify-content: space-between;">
