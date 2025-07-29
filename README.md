@@ -112,7 +112,7 @@ python preprocess.py --svg_path './data/raw/Yours.svg'
 ```
 After that, get the PNG format of your own sketch, which will be used in the scene decomposition, the stroke(point) assignment, 
 and the motion planning. Your can save the PNG in [js.design](https://js.design/special/article/svg-online-editors.html), or run the following Python code to turn SVG to PNG:
-```
+``` python
 import cairosvg
 
 svg_path = './data/raw/Yours.svg'
@@ -160,7 +160,7 @@ We recommend GPT-4, especially ChatGPT-4, to get the result and check it in real
 We should provide the sketch (`Yours.png`) and the text caption (`Yours_Text_Instruction`).
 The GPT-4 instruction and examples are provided in `./data/examples-for-scene-decomposition`. 
 Save the result in `./data/processed/Yours/Yours_decomp.txt`, 
-and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/aircrafter3/aircrafter3_decomp.txt`). 
+and the format should be the same as the 60 created sketches (*e.g.*, `./data/processed/aircrafter3/aircrafter3_decomp.txt`). 
 #### 🧮 Stroke(point) Assignment
 The stroke(point) assignment aims to assign the strokes, as well as the control points, to their belonging objects. 
 The stroke(point) assignment is actually the object segmentation task in vector sketch. 
@@ -219,7 +219,7 @@ We should provide the sketch (`Yours.png`) and the text caption (`Yours_Text_Ins
 and the object bounding boxes (already saved in `Yours_bbox.txt` during stroke(point) assignment).
 The GPT-4 instruction and examples are provided in `./data/examples-for-motion-planning`. 
 Save the result in `./data/processed/Yours/Yours_traj.txt`, 
-and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/aircrafter3/aircrafter3_traj.txt`). 
+and the format should be the same as the 60 created sketches (*e.g.*, `./data/processed/aircrafter3/aircrafter3_traj.txt`). 
 
 We **highly recommend** to check the motion plan. Run `./view_plan.py` to visualize the motion plan. If you are not satisfy with the result, instruct the LLM for modification in time.
 The incorrect motion planning will lead to the failed animation.
@@ -241,4 +241,29 @@ CUDA_VISIBLE_DEVICES=0 python animate_mosketch.py \
         --seed 130 \
         --num_frames 20
 ```
+
+## 🤝 Acknowledgement
+This implementation relies on resources from [Live-Sketch](https://github.com/yael-vinker/live_sketch) and [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything), 
+we thank the original authors for their excellent contributions and for making their work publicly available.
+
+## 📧 Contact
+If you have any questions about this project, 
+please raise an issue or contact us at Jingyu Liu ([liujingyu2023@ruc.edu.cn](mailto:liujingyu2023@ruc.edu.cn)).
+
+## 📜 Licence
+This work is licensed under a **[MIT](https://opensource.org/licenses/MIT)** License.
+
+## 📎 Citation
+If you find this work useful, please consider cite this paper:
+
+```bibtex
+@inproceedings{liu2025multi,
+  title={Multi-Object Sketch Animation by Scene Decomposition and Motion Planning},
+  author={Liu, Jingyu and Xin, Zijie and Fu, Yuhan and Zhao, Ruixiang and Lan, Bangxiang and Li, Xirong},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2025}
+}
+```
+
+
 
