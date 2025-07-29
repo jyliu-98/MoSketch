@@ -185,7 +185,28 @@ python stroke_assignment.py \
   --text_prompt Your_Object_Names \
   --device "cuda"
 ```
-<img src="repo_image/segment.png"/>
+<div style="display: flex; justify-content: space-between;">
+  <img src="repo_image/plan/1.png" width="12%">
+  <img src="repo_image/plan/1c.png" width="12%">
+  <img src="repo_image/plan/2.png" width="12%">
+  <img src="repo_image/plan/2c.png" width="12%">
+  <img src="repo_image/plan/3.png" width="12%">
+  <img src="repo_image/plan/3c.png" width="12%">
+  <img src="repo_image/plan/4.png" width="12%">
+  <img src="repo_image/plan/4c.png" width="12%">
+</div>
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="repo_image/plan/5.png" width="12%">
+  <img src="repo_image/plan/5c.png" width="12%">
+  <img src="repo_image/plan/6.png" width="12%">
+  <img src="repo_image/plan/6c.png" width="12%">
+  <img src="repo_image/plan/7.png" width="12%">
+  <img src="repo_image/plan/7c.png" width="12%">
+  <img src="repo_image/plan/8.png" width="12%">
+  <img src="repo_image/plan/8c.png" width="12%">
+</div>
+
 The stroke(point) assignment are saved in `Yours_semantic.txt`, which lists objects and their strokes (IDs in SVG).
 Objects' bounding boxes are written in `Yours_bbox.txt`. `Yours_color.svg` is the visualization of stroke(point) assignment, 
 and you can check it with color-object pairs printed in the output. Copy these files to the processed folder (`MoSketch/data/processed/Yours`).
