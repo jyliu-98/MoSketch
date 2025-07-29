@@ -233,25 +233,25 @@ python view_plan.py \
 The motion plan will be saved as `./data/processed/Yours/Yours_color.gif`
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="repo_image/plan/1.png" width="12.4%">
-  <img src="repo_image/plan/1.gif" width="12.4%">
-  <img src="repo_image/plan/2.png" width="12.4%">
-  <img src="repo_image/plan/2.gif" width="12.4%">
-  <img src="repo_image/plan/3.png" width="12.4%">
-  <img src="repo_image/plan/3.gif" width="12.4%">
-  <img src="repo_image/plan/4.png" width="12.4%">
-  <img src="repo_image/plan/4.gif" width="12.4%">
+  <img src="repo_image/plan/1.png" width="12.3%">
+  <img src="repo_image/plan/1.gif" width="12.3%">
+  <img src="repo_image/plan/2.png" width="12.3%">
+  <img src="repo_image/plan/2.gif" width="12.3%">
+  <img src="repo_image/plan/3.png" width="12.3%">
+  <img src="repo_image/plan/3.gif" width="12.3%">
+  <img src="repo_image/plan/4.png" width="12.3%">
+  <img src="repo_image/plan/4.gif" width="12.3%">
 </div>
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="repo_image/plan/5.png" width="12.4%">
-  <img src="repo_image/plan/5.gif" width="12.4%">
-  <img src="repo_image/plan/6.png" width="12.4%">
-  <img src="repo_image/plan/6.gif" width="12.4%">
-  <img src="repo_image/plan/7.png" width="12.4%">
-  <img src="repo_image/plan/7.gif" width="12.4%">
-  <img src="repo_image/plan/8.png" width="12.4%">
-  <img src="repo_image/plan/8.gif" width="12.4%">
+  <img src="repo_image/plan/5.png" width="12.1%">
+  <img src="repo_image/plan/5.gif" width="12.1%">
+  <img src="repo_image/plan/6.png" width="12.1%">
+  <img src="repo_image/plan/6.gif" width="12.1%">
+  <img src="repo_image/plan/7.png" width="12.1%">
+  <img src="repo_image/plan/7.gif" width="12.1%">
+  <img src="repo_image/plan/8.png" width="12.1%">
+  <img src="repo_image/plan/8.gif" width="12.1%">
 </div>
 
 After getting the scene decomposition (`Yours_decomp.txt`), the stroke(point) assignment (`Yours_semantic.txt`) 
