@@ -156,9 +156,8 @@ object grounding on the multi-object sketch, and then assign strokes to objects 
 
 First, Your should install [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything).
 Then Copy the code `MoSketch/stroke_assignment.py` to GoundingDino project.
-Make a new folder `sketch` in GoundingDino project, and copy the SVG and PNG(256x256) of the sketch in it.
+Make a new folder `sketch` in GoundingDino project, and copy the SVG `Yours.svg` and PNG(256x256) `Yours.png` of the sketch in it.
 Run `Grounded-Segment-Anything/stroke_assignment.py` (do not forget adding object names in the parameter`--text_prompt`).
-Use the sketch 'football7' as an example:
 ```
 export CUDA_VISIBLE_DEVICES=0
 python stroke_assignment.py \
@@ -166,16 +165,16 @@ python stroke_assignment.py \
   --grounded_checkpoint groundingdino_swint_ogc.pth \
   --sam_checkpoint sam_vit_h_4b8939.pth \
   --sketch_dir "sketch" \
-  --sketch_img football7.png \
+  --sketch_img Yours.png \
   --box_threshold 0.2 \
   --text_threshold 0.2 \
   --iou_w 1.0 \
-  --text_prompt "soccer player,goalkeeper,ball,goal" \
+  --text_prompt Your_Object_Names \
   --device "cuda"
 ```
-The stroke(point) assignment are saved in `football7_semantic.txt`, which lists objects and their strokes (IDs in SVG).
-Objects' bounding boxes are written in `football7_bbox.txt`. `football7_color.svg` is the visualization of stroke(point) assignment, 
-and you can check it with color-object pairs printed in the output. Copy these files to the processed folder (`MoSketch/data/processed/football7`).
+The stroke(point) assignment are saved in `Yours_semantic.txt`, which lists objects and their strokes (IDs in SVG).
+Objects' bounding boxes are written in `Yours_bbox.txt`. `Yours_color.svg` is the visualization of stroke(point) assignment, 
+and you can check it with color-object pairs printed in the output. Copy these files to the processed folder (`MoSketch/data/processed/Yours`).
 
 **Note that:**
 * `--box_threshold` and `--text_threshold` are the semantic thresholds in GoundingDino. 
@@ -208,11 +207,23 @@ The instruction and examples are provided in `./data/examples-for-motion-plannin
 Save the result in `./data/processed/Yours/Yours_traj.txt`, 
 and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/aircrafter3/aircrafter3_traj.txt`). 
 
-We highly recommend to check the motion plan. If you are not satisfy with the result, instruct the LLM for modification in time.
-The incorrect motion planning will lead to the failed animation. Run `./view_plan.py` to visualize the motion plan. 
+We **highly recommend** to check the motion plan. Run `./view_plan.py` to visualize the motion plan. If you are not satisfy with the result, instruct the LLM for modification in time.
+The incorrect motion planning will lead to the failed animation.  
 ```
 python view_plan.py \
   --sketch_dir './data/processed/Yours' \
   --sketch_name 'Yours' \
   --frame_num 20
+```
+
+After getting the scene decomposition (`Yours_decomp.txt`), the stroke(point) assignment (`Yours_semantic.txt`) 
+and the motion plan (`Yours_traj.txt`) of your own multi-object sketch in the folder `./data/processed/Yours`, 
+run the following command to get the final animation of your own sketch.
+```
+CUDA_VISIBLE_DEVICES=0 python animate_mosketch.py \
+        --sketch 'Yours' \
+        --caption Yours_Text_Instruction \
+        --num_iter 500 \
+        --seed 130 \
+        --num_frames 20
 ```
