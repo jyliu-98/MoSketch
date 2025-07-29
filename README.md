@@ -244,14 +244,14 @@ The motion plan will be saved as `./data/processed/Yours/Yours_color.gif`
 </div>
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="repo_image/plan/5.png" width="12.1%">
-  <img src="repo_image/plan/5.gif" width="12.1%">
-  <img src="repo_image/plan/6.png" width="12.1%">
-  <img src="repo_image/plan/6.gif" width="12.1%">
-  <img src="repo_image/plan/7.png" width="12.1%">
-  <img src="repo_image/plan/7.gif" width="12.1%">
-  <img src="repo_image/plan/8.png" width="12.1%">
-  <img src="repo_image/plan/8.gif" width="12.1%">
+  <img src="repo_image/plan/5.png" width="12%">
+  <img src="repo_image/plan/5.gif" width="12%">
+  <img src="repo_image/plan/6.png" width="12%">
+  <img src="repo_image/plan/6.gif" width="12%">
+  <img src="repo_image/plan/7.png" width="12%">
+  <img src="repo_image/plan/7.gif" width="12%">
+  <img src="repo_image/plan/8.png" width="12%">
+  <img src="repo_image/plan/8.gif" width="12%">
 </div>
 
 After getting the scene decomposition (`Yours_decomp.txt`), the stroke(point) assignment (`Yours_semantic.txt`) 
