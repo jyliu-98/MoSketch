@@ -247,8 +247,7 @@ This implementation relies on resources from [Live-Sketch](https://github.com/ya
 we thank the original authors for their excellent contributions and for making their work publicly available.
 
 ## 📧 Contact
-If you have any questions about this project, 
-please raise an issue or contact us at Jingyu Liu ([liujingyu2023@ruc.edu.cn](mailto:liujingyu2023@ruc.edu.cn)).
+If you have any questions, please raise an issue or contact us at ([liujingyu2023@ruc.edu.cn](mailto:liujingyu2023@ruc.edu.cn)).
 
 ## 📜 Licence
 This work is licensed under a **[MIT](https://opensource.org/licenses/MIT)** License.
