@@ -121,7 +121,7 @@ def main():
                           frames_svg[i][1])
         cairosvg.svg2png(url=f"{temp_dir}/frame{i:03d}.svg",
                          write_to=f"{temp_dir}/frame{i:03d}.png",
-                         scale=4, background_color="white")
+                         scale=1, background_color="white")
     gif_dest_path = os.path.join(sketch_dir, sketch_name + '_color.gif')
     png_filenames = sorted([k for k in os.listdir(temp_dir) if "png" in k])
     images = []
