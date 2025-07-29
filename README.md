@@ -110,12 +110,23 @@ while sketches created by [js.design](https://js.design/special/article/svg-onli
 ```
 python preprocess.py --svg_path './data/raw/Yours.svg'
 ```
+After that, get the PNG format of your own sketch, which will be used in the scene decomposition, the stroke(point) assignment, 
+and the motion planning. Your can save the PNG in [js.design](https://js.design/special/article/svg-online-editors.html), or run the following Python code to turn SVG to PNG.
+```
+import cairosvg
+
+svg_path = './data/raw/Yours.svg'
+png_path = './data/raw/Yours.png'
+cairosvg.svg2png(url=svg_path,
+                 write_to=png_path,
+                 scale=1, background_color="white")
+```
 
 **Our preparation process:**
 * Creating some single-object vector sketches by [CLIPasso](https://clipasso.github.io/clipasso/).
 * Using [js.design](https://js.design/special/article/svg-online-editors.html) to gather the single-object vector sketches in a reasonable scene.
 * Using [js.design](https://js.design/special/article/svg-online-editors.html) to edit the multi-object sketch (*e.g.*, add or delete strokes).
-* Save the multi-object sketch, and run `./preprocess.py` to make sure the sketch can be processed with diffvg.
+* Save the multi-object sketch (both SVG and PNG), and run `./preprocess.py` to make sure the SVG can be processed with diffvg.
 <img src="repo_image/creation.png"/>
 
 **We release 500 more created sketches!** There are 560 vector multi-object sketches now! (`./data/raw/560sketches.zip`)
@@ -138,14 +149,16 @@ The output video will be saved in `./output/basketball5`.
 The scene decomposition, stroke(point) assignment and motion plan of the **500 more created sketches** are provided in `./data/processed/560sketches.zip`.
 Use the above command to animate them!
 
+<hr>
+
 ### 👩‍🎨 Animate Your Own Sketch
 The scene decomposition, the stroke(point) assignment and the motion plan of your own multi-object sketch should be provided before animation,
 and the format should follow the 60 created sketches. Make a new folder `./data/processed/Yours`, and put the vector sketch (`Yours.svg`) in it.
 #### 🧩 Scene Decomposition
 We use LLM to get the scene decomposition of the multi-object sketch. The LLM is not limited.
 We recommend GPT-4, especially ChatGPT-4, to get the result and check it in real time. 
-We should provide a sketch and a text caption.
-The instruction and examples are provided in `./data/examples-for-scene-decomposition`. 
+We should provide the sketch (`Yours.png`) and the text caption (`Yours_Text_Instruction`).
+The GPT-4 instruction and examples are provided in `./data/examples-for-scene-decomposition`. 
 Save the result in `./data/processed/Yours/Yours_decomp.txt`, 
 and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/aircrafter3/aircrafter3_decomp.txt`). 
 #### 🧮 Stroke(point) Assignment
@@ -156,7 +169,7 @@ object grounding on the multi-object sketch, and then assign strokes to objects 
 
 First, Your should install [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything).
 Then Copy the code `MoSketch/stroke_assignment.py` to GoundingDino project.
-Make a new folder `sketch` in GoundingDino project, and copy the SVG `Yours.svg` and PNG(256x256) `Yours.png` of the sketch in it.
+Make a new folder `sketch` in GoundingDino project, and copy the SVG `Yours.svg` and PNG `Yours.png` of the sketch in it.
 Run `Grounded-Segment-Anything/stroke_assignment.py` (do not forget adding object names in the parameter`--text_prompt`).
 ```
 export CUDA_VISIBLE_DEVICES=0
@@ -190,7 +203,7 @@ python stroke_assignment.py \
   --config GroundingDINO/groundingdino/config/GroundingDINO_SwinT_OGC.py \
   --grounded_checkpoint groundingdino_swint_ogc.pth \
   --sam_checkpoint sam_vit_h_4b8939.pth \
-  --sketch_dir "sketch2" \
+  --sketch_dir "sketch" \
   --sketch_img huldres6.png \
   --box_threshold 0.2 \
   --text_threshold 0.2 \
@@ -202,8 +215,9 @@ python stroke_assignment.py \
 #### 🚗 Motion Planning
 We use LLM to get the motion plan of the multi-object sketch. 
 We also recommend ChatGPT-4 to get the result and check it in real time. 
-We should provide a sketch, a text caption and the object bounding boxes.
-The instruction and examples are provided in `./data/examples-for-motion-planning`. 
+We should provide the sketch (`Yours.png`) and the text caption (`Yours_Text_Instruction`) 
+and the object bounding boxes (already saved in `Yours_bbox.txt` during stroke(point) assignment).
+The GPT-4 instruction and examples are provided in `./data/examples-for-motion-planning`. 
 Save the result in `./data/processed/Yours/Yours_traj.txt`, 
 and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/aircrafter3/aircrafter3_traj.txt`). 
 
@@ -218,7 +232,7 @@ python view_plan.py \
 
 After getting the scene decomposition (`Yours_decomp.txt`), the stroke(point) assignment (`Yours_semantic.txt`) 
 and the motion plan (`Yours_traj.txt`) of your own multi-object sketch in the folder `./data/processed/Yours`, 
-run the following command to get the final animation of your own sketch.
+run `./animate_mosketch.py` to get the final animation of your own sketch.
 ```
 CUDA_VISIBLE_DEVICES=0 python animate_mosketch.py \
         --sketch 'Yours' \
