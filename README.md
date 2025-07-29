@@ -106,12 +106,12 @@ For own sketch preparation, if you want to generate sketches automatically, we r
 an image-to-sketch method that produces sketches in vector format; if you want to create sketches manually, you can use some free online tools, 
 such as [js.design](https://js.design/special/article/svg-online-editors.html). 
 Note that sketches created by [CLIPasso](https://clipasso.github.io/clipasso/) can be processed with diffvg, 
-while sketches created by [js.design](https://js.design/special/article/svg-online-editors.html) should go through `./preprocess.py`.
+while sketches created by [js.design](https://js.design/special/article/svg-online-editors.html) should go through `./preprocess.py`:
 ```
 python preprocess.py --svg_path './data/raw/Yours.svg'
 ```
 After that, get the PNG format of your own sketch, which will be used in the scene decomposition, the stroke(point) assignment, 
-and the motion planning. Your can save the PNG in [js.design](https://js.design/special/article/svg-online-editors.html), or run the following Python code to turn SVG to PNG.
+and the motion planning. Your can save the PNG in [js.design](https://js.design/special/article/svg-online-editors.html), or run the following Python code to turn SVG to PNG:
 ```
 import cairosvg
 
@@ -170,7 +170,7 @@ object grounding on the multi-object sketch, and then assign strokes to objects 
 First, Your should install [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything).
 Then Copy the code `MoSketch/stroke_assignment.py` to GoundingDino project.
 Make a new folder `sketch` in GoundingDino project, and copy the SVG `Yours.svg` and PNG `Yours.png` of the sketch in it.
-Run `Grounded-Segment-Anything/stroke_assignment.py` (do not forget adding object names in the parameter`--text_prompt`).
+Run `Grounded-Segment-Anything/stroke_assignment.py` (do not forget adding object names in the parameter`--text_prompt`):
 ```
 export CUDA_VISIBLE_DEVICES=0
 python stroke_assignment.py \
@@ -222,7 +222,7 @@ Save the result in `./data/processed/Yours/Yours_traj.txt`,
 and the format should be the same as the 60 created sketches (*e.g.*, `/data/processed/aircrafter3/aircrafter3_traj.txt`). 
 
 We **highly recommend** to check the motion plan. Run `./view_plan.py` to visualize the motion plan. If you are not satisfy with the result, instruct the LLM for modification in time.
-The incorrect motion planning will lead to the failed animation.  
+The incorrect motion planning will lead to the failed animation.
 ```
 python view_plan.py \
   --sketch_dir './data/processed/Yours' \
@@ -232,7 +232,7 @@ python view_plan.py \
 
 After getting the scene decomposition (`Yours_decomp.txt`), the stroke(point) assignment (`Yours_semantic.txt`) 
 and the motion plan (`Yours_traj.txt`) of your own multi-object sketch in the folder `./data/processed/Yours`, 
-run `./animate_mosketch.py` to get the final animation of your own sketch.
+run `./animate_mosketch.py` to get the final animation of your own sketch: 
 ```
 CUDA_VISIBLE_DEVICES=0 python animate_mosketch.py \
         --sketch 'Yours' \
@@ -241,3 +241,4 @@ CUDA_VISIBLE_DEVICES=0 python animate_mosketch.py \
         --seed 130 \
         --num_frames 20
 ```
+
