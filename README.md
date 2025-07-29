@@ -30,7 +30,7 @@
 - **[2025.08.02]** 🔥 We released **more created multi-object sketches**! There are **560** multi-object sketches now!
 - **[2025.07.29]** 🔥 We released the **[project page](https://rucmm.github.io/MoSketch)** for **MoSketch**.
 - **[2025.07.26]** 🔥 We released the **[code](https://github.com/jyliu-98/MoSketch)** for **MoSketch**.
-- **[2025.06.26]** 🎉 MoSketch is accepted by ICCV 2025!
+- **[2025.06.26]** 🎉 **MoSketch** is accepted by ICCV 2025!
 - **[2025.03.25]** 🔥 We released the **[MoSketch Paper](https://arxiv.org/abs/2503.19351)**. MoSketch is an iterative 
 optimization based and thus **training-data free** method, aiming to animate a multi-object sketch *w.r.t.* a specific textual instruction.
 
@@ -229,6 +229,7 @@ python view_plan.py \
   --sketch_name 'Yours' \
   --frame_num 20
 ```
+The motion plan will be saved as `./data/processed/Yours/Yours_color.gif`
 
 After getting the scene decomposition (`Yours_decomp.txt`), the stroke(point) assignment (`Yours_semantic.txt`) 
 and the motion plan (`Yours_traj.txt`) of your own multi-object sketch in the folder `./data/processed/Yours`, 
@@ -241,6 +242,7 @@ CUDA_VISIBLE_DEVICES=0 python animate_mosketch.py \
         --seed 130 \
         --num_frames 20
 ```
+The output video will be saved in `./output/Yours`.
 
 ## 🤝 Acknowledgement
 This implementation relies on resources from [Live-Sketch](https://github.com/yael-vinker/live_sketch) and [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything), 
