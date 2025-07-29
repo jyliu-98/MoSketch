@@ -168,7 +168,7 @@ We employ [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anyth
 object grounding on the multi-object sketch, and then assign strokes to objects based on the bounding boxes. 
 
 First, Your should install [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything).
-Then Copy the code `MoSketch/stroke_assignment.py` to GoundingDino project.
+Then copy the code `MoSketch/stroke_assignment.py` to the GoundingDino project.
 Make a new folder `sketch` in GoundingDino project, and copy the SVG `Yours.svg` and PNG `Yours.png` of the sketch in it.
 Run `Grounded-Segment-Anything/stroke_assignment.py` (do not forget adding object names in the parameter`--text_prompt`):
 ```
