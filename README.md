@@ -185,6 +185,7 @@ python stroke_assignment.py \
   --text_prompt Your_Object_Names \
   --device "cuda"
 ```
+<img src="repo_image/segment.png"/>
 The stroke(point) assignment are saved in `Yours_semantic.txt`, which lists objects and their strokes (IDs in SVG).
 Objects' bounding boxes are written in `Yours_bbox.txt`. `Yours_color.svg` is the visualization of stroke(point) assignment, 
 and you can check it with color-object pairs printed in the output. Copy these files to the processed folder (`MoSketch/data/processed/Yours`).
