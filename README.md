@@ -293,7 +293,7 @@ CUDA_VISIBLE_DEVICES=0 python animate_mosketch.py \
 The output video will be saved in `./output/Yours`.
 
 ## 🤝 Acknowledgement
-This implementation relies on resources from [Live-Sketch](https://github.com/yael-vinker/live_sketch) and [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything), 
+This implementation relies on resources from [Live-Sketch](https://github.com/yael-vinker/live_sketch), [FlipSketch](https://github.com/hmrishavbandy/FlipSketch) and [GoundingDino](https://github.com/IDEA-Research/Grounded-Segment-Anything), 
 we thank the original authors for their excellent contributions and for making their work publicly available.
 
 ## 📧 Contact
