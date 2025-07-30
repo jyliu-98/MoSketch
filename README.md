@@ -243,7 +243,9 @@ The GPT-4 instruction and examples are provided in `./data/examples-for-motion-p
 Save the result in `./data/processed/Yours/Yours_traj.txt`, 
 and the format should be the same as the 60 created sketches (*e.g.*, `./data/processed/aircrafter3/aircrafter3_traj.txt`). 
 
-We **highly recommend** to check the motion plan. Run `./view_plan.py` to visualize the motion plan. If you are not satisfy with the result, instruct the LLM for modification in time.
+We **highly recommend** to check the motion plan in time. Run `./view_plan.py` to visualize the motion plan. 
+The motion plan should be aligned with `Yours_Text_Instruction`.
+If you are not satisfy with the result, instruct the LLM for modification in time.
 The incorrect motion planning will lead to the failed animation.
 ```
 python view_plan.py \
