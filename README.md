@@ -277,6 +277,8 @@ The motion plan will be saved as `./data/processed/Yours/Yours_color.gif`
   <img src="repo_image/plan/8.gif" width="12%">
 </div>
 
+<hr>
+
 After getting the scene decomposition (`Yours_decomp.txt`), the stroke(point) assignment (`Yours_semantic.txt`) 
 and the motion plan (`Yours_traj.txt`) of your own multi-object sketch in the folder `./data/processed/Yours`, 
 run `./animate_mosketch.py` to get the final animation of your own sketch: 
