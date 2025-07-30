@@ -147,7 +147,7 @@ CUDA_VISIBLE_DEVICES=0 python animate_mosketch.py \
 The output video will be saved in `./output/basketball5`.
 
 The scene decomposition, stroke(point) assignment and motion plan of the **500 more created sketches** are provided in `./data/processed/560sketches.zip`.
-Use the above command to animate them!
+**Use the above command to animate them!**
 
 <hr>
 
@@ -213,12 +213,12 @@ and you can check it with color-object pairs printed in the output. Copy these f
 
 **Note that:**
 * `--box_threshold` and `--text_threshold` are the semantic thresholds in GoundingDino. 
-`--iou_w` is a parameter about the object overlap (more `--iou_w` means more tolerance for overlap).
+`--iou_w` is a parameter about the object overlap (more `--iou_w` means less tolerance for overlap).
 Adjust these three parameters flexibly during the stroke(point) assignment.
 * Sometimes object names should be replaced to get the correct object grounding in GoundingDino, 
 *e.g.*, 'basketball` &rarr; 'ball', 'player' &rarr; 'man'.
 * If there are more than one objects in sketch sharing the same name, repeat the name in `--text_prompt`. For example, 
-'hurdle9.svg' has three athletes:
+'hurdle9' in the 60 created sketches has three athletes:
 ```
 export CUDA_VISIBLE_DEVICES=0
 python stroke_assignment.py \
